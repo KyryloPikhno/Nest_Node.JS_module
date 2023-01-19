@@ -22,6 +22,5 @@ export class UserController {
   }
 
   @Put('/:id')
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   updateUser() {}
 }
