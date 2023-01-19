@@ -1,16 +1,19 @@
-import { Body, Controller, Get, Param, Post, Put} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
+import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
+  constructor(private readonly userService: UserService) {}
+
   @Get()
   getAll() {
-    return 'all users';
+    return this.userService.getAll();
   }
 
   @Post()
   createUser(@Body() createUserDto: CreateUserDto) {
-    return `U create new USER ${JSON.stringify(createUserDto)}`;
+    return this.userService.createUser(createUserDto);
   }
 
   @Get('/:id')
@@ -18,6 +21,7 @@ export class UserController {
     return `user id: ${id}`;
   }
 
-  @Put()
+  @Put('/:id')
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   updateUser() {}
 }
