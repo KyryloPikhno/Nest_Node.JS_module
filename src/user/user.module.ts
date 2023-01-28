@@ -6,10 +6,14 @@ import { User } from './user.model';
 import { Car } from 'src/car/car.model';
 import { Role } from '../role/role.model';
 import { UserRoles } from '../role/user-role.model';
+import { RoleModule } from '../role/role.module';
 
 @Module({
-  imports: [SequelizeModule.forFeature([User, Car, Role, UserRoles])],
+  imports: [
+    SequelizeModule.forFeature([User, Car, Role, UserRoles]),
+    RoleModule,
+  ],
   controllers: [UserController],
-  providers: [UserService],
+  providers: [UserService, RoleModule],
 })
 export class UserModule {}

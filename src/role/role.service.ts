@@ -13,6 +13,10 @@ export class RoleService {
     return this.roleRepository.findOne({ where: { value } });
   }
 
+  async getRoles() {
+    return this.roleRepository.findAll();
+  }
+
   async createRole(dto: RoleDto) {
     return this.roleRepository.create(dto);
   }
