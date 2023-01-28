@@ -6,6 +6,7 @@ import { CarModule } from './car/car.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { User } from './user/user.model';
+import { RoleModule } from './role/role.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { User } from './user/user.model';
       models: [User],
       autoLoadModels: true,
     }),
+    RoleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
