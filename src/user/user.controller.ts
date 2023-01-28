@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
 import { UserService } from './user.service';
 import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
-import {User} from "./user.model";
+import { User } from './user.model';
 
 @ApiTags('users')
 @Controller('users')
@@ -26,6 +26,6 @@ export class UserController {
     return `user id: ${id}`;
   }
 
-  @Put('/:id')
-  updateUser() {}
+  // @Put('/:id')
+  // updateUser() {}
 }
