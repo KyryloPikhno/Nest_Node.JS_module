@@ -1,6 +1,15 @@
-import {BelongsToMany, Column, DataType, HasMany, Model, Table} from 'sequelize-typescript';
+import {
+  BelongsToMany,
+  Column,
+  DataType,
+  HasMany,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
-import {Car} from "../car/car.model";
+import { Car } from '../car/car.model';
+import { Role } from '../role/role.model';
+import { UserRoles } from '../role/user-role.model';
 
 @Table({ tableName: 'users' })
 export class User extends Model<User> {
@@ -91,6 +100,6 @@ export class User extends Model<User> {
   @HasMany(() => Car)
   cars: Car[];
 
-  @BelongsToMany(() => Role,() => UserRoles)
+  @BelongsToMany(() => Role, () => UserRoles)
   roles: Role[];
 }

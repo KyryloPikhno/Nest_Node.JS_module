@@ -7,6 +7,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
+import { User } from '../user/user.model';
 
 @Table({ tableName: 'cars' })
 export class Car extends Model<Car> {
