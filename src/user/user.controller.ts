@@ -1,28 +1,50 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create.user.dto';
 import { UserService } from './user.service';
-import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBadRequestResponse,
+  ApiQuery,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { User } from './user.model';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
-@ApiTags('users')
+@ApiTags('Users')
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
-
+  constructor(private readonly usersService: UserService) {}
+  @UseGuards(JwtAuthGuard)
   @Get()
-  getAll() {
-    return this.userService.getAll();
+  getAllUsers() {
+    return this.usersService.getAll();
   }
 
+  @ApiBadRequestResponse({ status: 400, type: 'Bad query param' })
   @ApiResponse({ status: 201, type: User })
   @Post()
   createUser(@Body() createUserDto: CreateUserDto) {
-    return this.userService.createUser(createUserDto);
+    return this.usersService.createUser(createUserDto);
   }
 
-  @ApiQuery({ name: 'id', example: 'rekkfg-2324' })
+  @ApiQuery({ name: 'id', example: '1sfd-24f1234' })
   @Get('/:id')
-  getById(@Param('id') id: string) {
-    return `user id: ${id}`;
+  getOneUserById(@Param('id') id: string) {
+    return `get user id ${id}`;
   }
+
+  @Put('/:id')
+  updateUser() {}
+
+  @Delete('/:id')
+  deleteUser() {}
 }

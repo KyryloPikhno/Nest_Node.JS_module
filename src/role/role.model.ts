@@ -1,7 +1,7 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {Column, DataType, Model, Table} from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 
-@Table({ tableName: 'roles' })
+@Table({ tableName: 'roles'})
 export class Role extends Model<Role> {
   @Column({
     type: DataType.INTEGER,
@@ -11,23 +11,11 @@ export class Role extends Model<Role> {
   })
   id: number;
 
-  @ApiProperty({
-    example: 'user',
-    required: true,
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, allowNull: true })
   value: string;
 
-  @ApiProperty({
-    example: 'desc',
-    required: true,
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, allowNull: false })
   description: string;
 }

@@ -19,24 +19,12 @@ export class Car extends Model<Car> {
   })
   id: number;
 
-  @ApiProperty({
-    example: 'Kia',
-    required: true,
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, allowNull: false })
   model: string;
 
-  @ApiProperty({
-    example: 'Pink',
-    required: true,
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, allowNull: false })
   color: string;
 
   @ForeignKey(() => User)

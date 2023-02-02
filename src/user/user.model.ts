@@ -22,79 +22,50 @@ export class User extends Model<User> {
   id: number;
 
   @ApiProperty({
-    example: 'Kirill',
-    required: true,
+    example: 'Olia',
+    required: false,
   })
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
+  @Column({ type: DataType.STRING, allowNull: true })
   firstName: string;
+
   @ApiProperty({
-    example: 'Pikhno',
-    required: true,
+    example: 'Smith',
+    required: false,
   })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @Column({ type: DataType.STRING, allowNull: false })
   surName: string;
 
   @ApiProperty({
-    example: 'male',
-    required: true,
+    example: 'female',
+    required: false,
   })
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
+  @Column({ type: DataType.STRING, allowNull: true })
   gender: string;
 
   @ApiProperty({
-    example: 25,
-    required: true,
+    example: 24,
+    required: false,
   })
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
+  @Column({ type: DataType.INTEGER, allowNull: true })
   age: number;
 
   @ApiProperty({
-    example: 'Mariupol',
-    required: true,
+    example: 'Lviv',
+    required: false,
   })
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
+  @Column({ type: DataType.STRING, allowNull: true })
   city: string;
 
-  @ApiProperty({
-    example: false,
-    required: true,
-  })
-  @Column({
-    type: DataType.BOOLEAN,
-    allowNull: true,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.BOOLEAN, allowNull: true })
   isConfirm: boolean;
 
-  @ApiProperty({
-    example: 'MR.GOOD@i.ua',
-    required: true,
-  })
-  @Column({
-    type: DataType.STRING,
-    unique: true,
-    allowNull: false,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, unique: true, allowNull: false })
   email: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
+  @ApiProperty()
+  @Column({ type: DataType.STRING, allowNull: false })
   password: string;
 
   @HasMany(() => Car)

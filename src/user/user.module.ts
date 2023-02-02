@@ -3,9 +3,10 @@ import { UserService } from './user.service';
 import { UserController } from './user.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './user.model';
-import { Car } from 'src/car/car.model';
+import { Car } from '../car/car.model';
 import { Role } from '../role/role.model';
 import { UserRoles } from '../role/user-role.model';
+import { RoleService } from '../role/role.service';
 import { RoleModule } from '../role/role.module';
 
 @Module({
@@ -14,7 +15,7 @@ import { RoleModule } from '../role/role.module';
     RoleModule,
   ],
   controllers: [UserController],
-  providers: [UserService, RoleModule],
-  exports: [UserModule],
+  providers: [UserService, RoleService],
+  exports: [UserService],
 })
 export class UserModule {}

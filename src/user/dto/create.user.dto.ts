@@ -12,7 +12,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
   @ApiProperty({
-    example: 'Tatiana',
+    example: 'Olia',
     required: false,
   })
   @IsString()
@@ -20,32 +20,32 @@ export class CreateUserDto {
   firstName: string;
 
   @ApiProperty({
-    example: 'Popko',
+    example: 'Smith',
     required: false,
   })
   @IsString()
-  @Length(2)
   @IsNotEmpty()
+  @Length(2)
   surName: string;
 
   @ApiProperty({
     example: 'female',
-    required: true,
+    required: false,
   })
   @IsString()
   @IsOptional()
   gender: string;
 
   @ApiProperty({
-    example: 'mr.good@i.ua',
-    required: true,
+    example: 'Olia@mail.com',
+    required: false,
   })
   @IsString()
   @IsEmail()
   email: string;
 
   @ApiProperty({
-    example: 16,
+    example: 23,
     required: false,
   })
   @IsNumber()
@@ -53,7 +53,7 @@ export class CreateUserDto {
   age: number;
 
   @ApiProperty({
-    example: 'Mariupol',
+    example: 'Lviv',
     required: false,
   })
   @IsString()
@@ -61,14 +61,15 @@ export class CreateUserDto {
   city: string;
 
   @ApiProperty({
-    example: false,
+    example: true,
     required: false,
   })
   @IsBoolean()
+  @IsOptional()
   isConfirm: boolean;
 
   @ApiProperty({
-    example: 'password1234',
+    example: 'qwerty12345',
     required: true,
   })
   @IsString()

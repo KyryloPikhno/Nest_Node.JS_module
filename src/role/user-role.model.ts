@@ -9,7 +9,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../user/user.model';
 import { Role } from './role.model';
 
-@Table({ tableName: 'user_roles' })
+@Table({ tableName: 'user_roles', createdAt: false, updatedAt: false })
 export class UserRoles extends Model<UserRoles> {
   @Column({
     type: DataType.INTEGER,
@@ -21,17 +21,11 @@ export class UserRoles extends Model<UserRoles> {
 
   @ApiProperty()
   @ForeignKey(() => User)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   userId: number;
 
   @ApiProperty()
   @ForeignKey(() => Role)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   roleId: number;
 }
