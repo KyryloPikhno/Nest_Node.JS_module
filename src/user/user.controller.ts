@@ -25,7 +25,4 @@ export class UserController {
   getById(@Param('id') id: string) {
     return `user id: ${id}`;
   }
-
-  // @Put('/:id')
-  // updateUser() {}
 }
