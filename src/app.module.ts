@@ -10,6 +10,7 @@ import { RoleModule } from './role/role.module';
 import { Car } from './car/car.model';
 import { Role } from './role/role.model';
 import { UserRoles } from './role/user-role.model';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { UserRoles } from './role/user-role.model';
       autoLoadModels: true,
     }),
     RoleModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

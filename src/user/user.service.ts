@@ -25,4 +25,8 @@ export class UserService {
       throw new BadRequestException({ message: 'bad request' });
     }
   }
+
+  async findOne(userName: string) {
+    return this.userRepository.findOne({ where: { email: userName } });
+  }
 }
